@@ -1,0 +1,23 @@
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 400px;
+  height: 400px;
+}
+
+.grid {
+  width: 96px;
+  height: 96px;
+  background-color: white;
+  border: 2px solid black;
+}
