@@ -27,6 +27,14 @@ main {
   padding: 20px;
 }
 
+.gridElement {
+  box-sizing: border-box;
+}
+
+.gridLines {
+  border: 1px solid black;
+}
+
 .controls {
   background-color: lightslategray;
   padding: 40px;

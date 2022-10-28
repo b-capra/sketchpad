@@ -62,15 +62,17 @@ colorInput.addEventListener('input', () => {
   currentColor = colorInput.value;
 });
 
-
 // ---CONTROLS---
 
 const display = document.querySelector('#gridCaption');
 const toggles = document.querySelectorAll('.toggle');
 const eraser = document.querySelector('#erase');
+const gridLines = document.querySelector('#gridLines');
 const clear = document.querySelector('#clear');
+const allGrid = document.querySelectorAll('.gridElement');
 let active = false;
 let mode = 'default';
+let displayLines = false;
 
 display.textContent = 'Size (up to 60): ';
 
@@ -98,9 +100,23 @@ eraser.addEventListener('click', () => {
   }
 })
 
+// Gridlines
+gridLines.addEventListener('click', () => {
+  if (displayLines === false) {
+    allGrid.forEach((div) => {
+      div.classList.add('gridLines');
+    })
+    displayLines = true;
+  } else if (displayLines === true) {
+    allGrid.forEach((div) => {
+      div.classList.remove('gridLines');
+    })
+    displayLines = false;
+  }
+})
+
 // Clear
 clear.addEventListener('click', () => {
-  const allGrid = document.querySelectorAll('.gridElement');
   allGrid.forEach((div) => {
     div.style.backgroundColor = 'white';
   });
