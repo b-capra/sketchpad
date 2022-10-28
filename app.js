@@ -33,7 +33,7 @@ function clearGrid() {
 }
 
 submit.addEventListener('click', () => {
-  const inputValue = parseInt(gridInput.value)
+  const inputValue = parseInt(gridInput.value);
   clearGrid();
   setupGrid(inputValue);
 })
@@ -69,7 +69,6 @@ const toggles = document.querySelectorAll('.toggle');
 const eraser = document.querySelector('#erase');
 const gridLines = document.querySelector('#gridLines');
 const clear = document.querySelector('#clear');
-const allGrid = document.querySelectorAll('.gridElement');
 let active = false;
 let mode = 'default';
 let displayLines = false;
@@ -102,6 +101,7 @@ eraser.addEventListener('click', () => {
 
 // Gridlines
 gridLines.addEventListener('click', () => {
+  const allGrid = document.querySelectorAll('.gridElement');
   if (displayLines === false) {
     allGrid.forEach((div) => {
       div.classList.add('gridLines');
@@ -117,6 +117,7 @@ gridLines.addEventListener('click', () => {
 
 // Clear
 clear.addEventListener('click', () => {
+  const allGrid = document.querySelectorAll('.gridElement');
   allGrid.forEach((div) => {
     div.style.backgroundColor = 'white';
   });
