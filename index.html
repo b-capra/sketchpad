@@ -8,8 +8,22 @@
   <title>Sketchpad</title>
 </head>
 <body>
-  <button class="newgrid"></button>
-  <div class="container"></div>
+  <header>Javascript Sketchpad!</header>
+  <main>
+    <div class="controls">
+      <input class="control-item" id="color-select" type="color">
+      <button class="control-item" id="darken">Toggle Shader</button>
+      <button class="control-item" id="lighten">Toggle Lighten</button>
+      <button class="control-item" id="erase">Toggle Eraser</button>
+      <button class="control-item" id="clear">Clear</button>
+      <div class="slidecontainer">
+        <p id="gridCaption"></p>
+        <input id="gridInput" type="text">
+        <button id="gridSubmit" type="submit">Generate Grid</button>
+      </div>
+    </div>
+    <div class="gridcontainer"></div>
+  </main>
   <script src="app.js"></script>
 </body>
 </html>

@@ -1,23 +1,40 @@
-body {
-  height: 100vh;
+header {
+  height: 10vh;
+  text-align: center;
+  font-size: 30px;
+}
+
+main {
+  height: 90vh;
   display: flex;
-  flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
 
-.container {
+.gridcontainer {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  width: 400px;
-  height: 400px;
+  width: 600px;
+  height: 600px;
 }
 
-.grid {
-  width: 96px;
-  height: 96px;
-  background-color: white;
-  border: 2px solid black;
+.controls {
+  background-color: lightslategray;
+  padding: 40px;
+}
+
+.control-item {
+  display: block;
+  margin-bottom: 20px;
+}
+
+#clear {
+  margin-bottom: 100px;
+}
+
+#gridSubmit {
+  display: block;
+  margin-top: 20px;
 }

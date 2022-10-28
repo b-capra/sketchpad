@@ -1,23 +1,38 @@
-const btnNew = document.querySelector('.newgrid')
+// Grid generation
 
-btnNew.textContent = 'Create new grid';
-btnNew.addEventListener('click', () => {
-  gridSize = prompt('Grid size (up to 100):');
-  if (gridSize > 100 || typeof gridSize !== 'number') {
+const container = document.querySelector('.gridcontainer');
+
+function setupGrid(size) {
+  if (size > 60 || typeof size !== 'number') {
     return Error;
   }
-});
-
-const container = document.querySelector('.container');
-
-for (i = 0; i < 16; i++) {
-  let newDiv = document.createElement('div');
-  newDiv.classList.add('grid');
-  container.appendChild(newDiv);
+  for (let i = 0; i < size ** 2; i++) {
+    let newDiv = document.createElement('div');
+    newDiv.style.width = `${600 / size}px`;
+    newDiv.style.height = `${600 / size}px`;
+    container.appendChild(newDiv);
+  }
 }
 
-const grid = document.querySelectorAll('.grid');
-
-function generateGrid(size) {
-  
+function clearGrid() {
+  while (container.firstChild) {
+    container.removeChild(container.firstChild);
+  }
 }
+
+const submit = document.querySelector('#gridSubmit');
+
+submit.addEventListener('click', () => {
+  const inputValue = parseInt(document.querySelector('#gridInput').value)
+  clearGrid();
+  setupGrid(inputValue);
+})
+
+
+
+
+
+
+
+const display = document.querySelector('#gridCaption');
+display.textContent = 'Size (up to 60): ';
