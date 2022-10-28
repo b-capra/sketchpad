@@ -1,3 +1,7 @@
+body {
+  background-color: #f3f3f3;
+}
+
 header {
   height: 10vh;
   text-align: center;
@@ -7,8 +11,9 @@ header {
 main {
   height: 90vh;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  gap: 100px;
 }
 
 .gridcontainer {
@@ -25,11 +30,58 @@ main {
 .controls {
   background-color: lightslategray;
   padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+#color-label {
+  font-size: 20px;
+  font-weight: bold;
+  color: #f3f3f3;
+}
+
+#color-label, #color-select {
+  display: inline;
+  margin-bottom: 20px;
+}
+
+#color-select {
+  background-color: lightslategray;
+  border: 3px solid #f3f3f3;
+  border-radius: 3px;
+  height: 40px;
+  width: 75px;
 }
 
 .control-item {
   display: block;
   margin-bottom: 20px;
+}
+
+.btn {
+  background-color: lightslategray;
+  border: 3px solid #f3f3f3;
+  border-radius: 3px;
+  height: 50px;
+  width: 150px;
+  color: #f3f3f3;
+  font-size: 15px;
+  font-weight: bold;
+  transition: background-color 0.1s;
+  transition: color 0.1s;
+}
+
+.btn:hover {
+  background-color: #f3f3f3;
+  color: lightslategray;
+}
+
+.btnActive {
+  background-color: #f3f3f3;
+  color: lightslategray;
 }
 
 #clear {

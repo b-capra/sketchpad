@@ -2,6 +2,13 @@
 
 const container = document.querySelector('.gridcontainer');
 const submit = document.querySelector('#gridSubmit');
+const gridInput = document.querySelector('#gridInput');
+
+function initialGrid() {
+  clearGrid();
+  setupGrid(16);
+  gridInput.value = 16;
+}
 
 function setupGrid(size) {
   if (size > 60 || typeof size !== 'number') {
@@ -12,6 +19,7 @@ function setupGrid(size) {
     gridElement.style.width = `${600 / size}px`;
     gridElement.style.height = `${600 / size}px`;
     gridElement.style.backgroundColor = 'white';
+    gridElement.classList.add('gridElement');
     gridElement.addEventListener('mousedown', draw);
     gridElement.addEventListener('mouseover', draw);
     container.appendChild(gridElement);
@@ -25,14 +33,14 @@ function clearGrid() {
 }
 
 submit.addEventListener('click', () => {
-  const inputValue = parseInt(document.querySelector('#gridInput').value)
+  const inputValue = parseInt(gridInput.value)
   clearGrid();
   setupGrid(inputValue);
 })
 
+initialGrid();
 
 // Draw functionality
-
 let mouseDown = false;
 document.onmousedown = () => (mouseDown = true);
 document.onmouseup = () => (mouseDown = false);
@@ -40,12 +48,60 @@ document.onmouseup = () => (mouseDown = false);
 function draw(e) {
   if (e.type === 'mouseover' && !mouseDown) {
     return;
-  }
-  e.target.style.backgroundColor = "black";
+  } else if (mode === 'erase') {
+    e.target.style.backgroundColor = 'white';
+  } else if (mode === 'default')
+  e.target.style.backgroundColor = currentColor;
 }
 
+// Colors
+const colorInput = document.querySelector('#color-select');
+let currentColor = colorInput.value;
 
-// Controls
+colorInput.addEventListener('input', () => {
+  currentColor = colorInput.value;
+});
+
+
+// ---CONTROLS---
 
 const display = document.querySelector('#gridCaption');
+const toggles = document.querySelectorAll('.toggle');
+const eraser = document.querySelector('#erase');
+const clear = document.querySelector('#clear');
+let active = false;
+let mode = 'default';
+
 display.textContent = 'Size (up to 60): ';
+
+// Toggle button styles
+toggles.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    if (active === false) {
+      btn.classList.add('btnActive');
+      active = true;
+      return;
+    } else if (active === true) {
+      btn.classList.remove('btnActive');
+      active = false;
+      return;
+    }
+  });
+});
+
+// Eraser
+eraser.addEventListener('click', () => {
+  if (mode === 'erase') {
+    mode = 'default';
+  } else {
+    mode = 'erase';
+  }
+})
+
+// Clear
+clear.addEventListener('click', () => {
+  const allGrid = document.querySelectorAll('.gridElement');
+  allGrid.forEach((div) => {
+    div.style.backgroundColor = 'white';
+  });
+});

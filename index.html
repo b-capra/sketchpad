@@ -11,11 +11,11 @@
   <header>Javascript Sketchpad!</header>
   <main>
     <div class="controls">
-      <input class="control-item" id="color-select" type="color">
-      <button class="control-item" id="darken">Toggle Shader</button>
-      <button class="control-item" id="lighten">Toggle Lighten</button>
-      <button class="control-item" id="erase">Toggle Eraser</button>
-      <button class="control-item" id="clear">Clear</button>
+      <div class="colorcontainer"><p id="color-label">Color: </p><input id="color-select" type="color" value="#000000"></div>
+      <button class="control-item btn toggle" id="darken">Toggle Shader</button>
+      <button class="control-item btn toggle" id="lighten">Toggle Lighten</button>
+      <button class="control-item btn toggle" id="erase">Toggle Eraser</button>
+      <button class="control-item btn" id="clear">Clear</button>
       <div class="slidecontainer">
         <p id="gridCaption"></p>
         <input id="gridInput" type="text">
